@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    flex-wrap: wrap;
+}
+
+.product {
+    border: 2px solid black;
+    width: 200px;
+}
+
+.product_image {
+    width: 100px;
+    height: 100px;
+}

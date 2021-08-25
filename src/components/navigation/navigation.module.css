@@ -1,0 +1,30 @@
+.navigation_container {
+    background-color: rebeccapurple;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+}
+
+.navigation_container_right {
+    justify-content: end;
+}
+
+.navigation_element {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    margin-right: 50px;
+}
+
+.navigation_element_hidden {
+    display: none;
+}
+
+.navigation_element2 {
+    margin: 5px;
+}
+
+.spotify {
+    margin-left: 50px;
+}

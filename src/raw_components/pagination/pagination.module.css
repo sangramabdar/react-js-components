@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.box {
+    background-color: red;
+}
+
+.image {
+    max-width: 200px;
+    max-height: 200px;
+}
