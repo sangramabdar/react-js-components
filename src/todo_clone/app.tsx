@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useEffect } from "react";
 import db from "../firabase";
+
 function Firebase(props) {
   const getUsers = async () => {
     const users = await db.collection("users").get();

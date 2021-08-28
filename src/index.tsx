@@ -1,12 +1,15 @@
 import ReactDOM from "react-dom";
-import * as React from "react";
-import App from "./raw_components/project_store/App";
-import "./index.custom.css";
-import Store from "./raw_components/project_store/store/store";
+import React, { useEffect, useState } from "react";
+import style from "./index.module.css";
+
+function App() {
+  return <div>app</div>;
+}
+
+export default App;
 
 ReactDOM.render(
-  <Store>
-    <App />
-  </Store>,
+  <App />,
+
   document.getElementById("root")
 );

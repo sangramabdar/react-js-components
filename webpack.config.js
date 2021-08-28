@@ -7,65 +7,66 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const config = {
-    mode: "development",
+  mode: "development",
 
-    entry: path.resolve(__dirname, "src", "index.tsx"),
-    output: {
-        path: path.resolve(__dirname, "dist"),
+  entry: path.resolve(__dirname, "src", "index.tsx"),
+  output: {
+    path: path.resolve(__dirname, "dist"),
 
-        filename: "bundle.[hash].js",
-    },
-    resolve: {
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-    },
-    module: {
-        rules: [{
-                test: /\.(ts|tsx|js|jsx)$/,
-                loader: "babel-loader",
-                exclude: /node_modules/,
+    filename: "bundle.[hash].js",
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(ts|tsx|js|jsx)$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
+      },
+
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: true,
             },
-
-            {
-                test: /\.(css|scss)$/,
-                use: [
-                    "style-loader",
-                    {
-                        loader: "css-loader",
-                        options: {
-                            importLoaders: 1,
-                            modules: true,
-                        },
-                    },
-                ],
-            },
+          },
         ],
-    },
-
-    devServer: {
-        // watchContentBase: true,
-        // contentBase: path.resolve(__dirname, "dist"),
-        open: true,
-        historyApiFallback: true,
-    },
-
-    devtool: "source-map",
-
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "public", "index.html"),
-        }),
+      },
     ],
+  },
+
+  devServer: {
+    // watchContentBase: true,
+    // contentBase: path.resolve(__dirname, "dist"),
+    open: true,
+    historyApiFallback: true,
+  },
+
+  devtool: "source-map",
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "public", "index.html"),
+    }),
+  ],
 };
 
 if (currentTask == "build") {
-    config.mode = "production";
-    config.module.rules[1].use[0] = MiniCssExtractPlugin.loader;
+  config.mode = "production";
+  config.module.rules[1].use[0] = MiniCssExtractPlugin.loader;
 
-    config.plugins.push(
-        new MiniCssExtractPlugin({
-            filename: "index.[hash].css",
-        })
-    );
+  config.plugins.push(
+    new MiniCssExtractPlugin({
+      filename: "index.[hash].css",
+    })
+  );
 }
 
 module.exports = config;
